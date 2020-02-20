@@ -3,6 +3,8 @@ const cors = require("cors");
 const path = require("path");
 const socket = require("socket.io");
 const mongoose = require("mongoose");
+const sanitize = require("mongo-sanitize");
+const helmet = require("helmet");
 const app = express();
 
 // import routes
@@ -14,6 +16,14 @@ const testimonialsRoutes = require("./routes/testimonials.routes");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
+
+app.use(helmet());
+
+app.use(
+  cors({
+    origin: "http://herorero.herokuapp.com/"
+  })
+);
 
 app.use((req, res, next) => {
   req.io = io;
