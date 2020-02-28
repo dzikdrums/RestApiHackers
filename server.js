@@ -45,7 +45,7 @@ app.use((req, res) => {
 });
 
 mongoose.connect(
-  `mongodb+srv://dzikdrums:${process.env.MONGO_PASS}@cluster-v42rn.mongodb.net/NewWaveDB?retryWrites=true&w=majority`,
+  `mongodb+srv://dzikdrums:mongo4880po9@cluster-v42rn.mongodb.net/NewWaveDB?retryWrites=true&w=majority`,
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
