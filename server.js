@@ -7,7 +7,6 @@ const sanitize = require("mongo-sanitize");
 const helmet = require("helmet");
 const app = express();
 
-// import routes
 const concertsRoutes = require("./routes/concerts.routes");
 const seatsRoutes = require("./routes/seats.routes");
 const testimonialsRoutes = require("./routes/testimonials.routes");
@@ -15,8 +14,6 @@ const testimonialsRoutes = require("./routes/testimonials.routes");
 // app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cors());
-
 app.use(helmet());
 
 app.use(
@@ -45,8 +42,11 @@ app.use((req, res) => {
 });
 
 mongoose.connect(
-  `mongodb+srv://dzikdrums:mongo4880po9@cluster-v42rn.mongodb.net/NewWaveDB?retryWrites=true&w=majority`,
-  { useNewUrlParser: true, useUnifiedTopology: true }
+  `mongodb+srv://dzikdrums:mongo4880po9@dziknote-5co5j.mongodb.net/test?retryWrites=true&w=majority`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
 );
 
 const db = mongoose.connection;
